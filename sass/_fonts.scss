@@ -1,13 +1,20 @@
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Quattrocento+Sans);
+
 h1 {
+    font-family: $headings;
     font-size: 2em;
-    margin-bottom: .5em;
+    margin-bottom: 1em;
 }
 
 h2 {
-    font-size: 1.5em;
-    margin-bottom: .5em;
+    font-family: $headings;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    line-height: 1.2;
 }
 
 p {
+    font-family: $paragraph;
     line-height: 1.6;
 }
