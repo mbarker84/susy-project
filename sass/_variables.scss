@@ -1,0 +1,26 @@
+/* Variables - Colour */
+$color1: #24221F;
+$color2: #363F45;
+$color3: #4B5F6D;
+$color4: #5E7C88;
+$color5: #FEB41C;
+
+/* Variables - Breakpoints */
+$bp-s: 420px;
+$bp-m: 720px;
+$bp-l: 1100px;
+
+/* Mixins */
+
+@mixin padding {
+    padding: 1em;
+    @media (min-width: $bp-s) {
+        padding: 1.5em;
+    }
+    @media (min-width: $bp-m) {
+        padding: 2em;
+    }
+    @media (min-width: $bp-l) {
+        padding: 2.5em;
+    }
+}

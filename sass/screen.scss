@@ -1,0 +1,151 @@
+@import "compass/reset";
+@import "susy";
+/* SCSS partials */
+@import "variables";
+@import "fonts";
+/* Compass */
+@import "compass/utilities/general/clearfix";
+
+$susy: (
+  columns: 2,
+  gutters: .1,
+  global-box-sizing: border-box,
+  debug: (image: show)
+); 
+
+/* Maps */
+$map-s: layout(auto 3 .1);
+$map-m: layout(auto 6 .25);
+$map-l: layout(auto 12 0);
+$map-gallery-l: layout(auto 4 .05);
+
+@include border-box-sizing;
+
+body {
+    font-size: 100%;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+header {
+    background-color: $color1;
+    @include padding;
+    text-align: center;
+    @media (min-width: $bp-l) {
+        @include layout($map-l);
+        @include span(3);
+    }
+}
+
+main {
+    background-color: $color3;
+    @media (min-width: $bp-l) {
+        @include layout($map-l);
+        @include span(9 last);
+    }
+}
+
+nav.categories {
+    background-color: $color2;
+    padding: 1em;
+    @include clearfix;
+    h3.categories__type {
+        display: none;
+    }
+    @media (min-width: $bp-s) {
+        padding: 1em 1.5em;
+    }
+    @media (min-width: $bp-m) {
+        padding: 1em 2em;
+    }
+    @media (min-width: $bp-l) {
+        @include layout($map-gallery-l);
+        padding: 0;
+        h3.categories__title {
+            @include span(1);
+            padding: 1em 2.5em;
+        }
+        h3.categories__type {
+            @include span(2 last);
+            display: block;
+            background-color: $color5;
+            padding: 1em 2.5em;
+        }
+    }
+}
+
+ul.gallery__list {
+    @include clearfix;
+    list-style: none;
+    @include padding;
+    li {
+        @include gallery(1 of 2);
+        margin-bottom: gutter(2);
+        background-color: $color4;
+        &:nth-last-child(-n+2) {
+            margin-bottom: 0;
+        }
+        @media (min-width: $bp-s) {
+            @include layout($map-s);
+            @include gallery(1);
+            margin-bottom: gutter();
+            &:nth-last-child(-n+3) {
+                margin-bottom: 0;
+            }
+        }
+        @media (min-width: $bp-m) {
+            @include layout($map-m);
+            @include gallery(2);
+            margin-bottom: gutter(6);
+        }
+        @media (min-width: $bp-l) {
+            @include layout($map-gallery-l);
+            @include gallery(1);
+            margin-bottom: gutter();
+            &:nth-last-child(-n+4) {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $color5;
+    @include padding;
+    @include clearfix;
+    clear: both;
+}
+
+img.about__photo {
+    @media (min-width: $bp-m) {
+        @include layout($map-m);
+        @include span(2);
+        background-colour: $color1;
+        height: 5em;
+    }
+    @media (min-width: $bp-l) {
+        @include layout($map-l);
+        @include span(3 of 12);
+    }
+}
+
+.about__text {
+    background-colour: $color1;
+    @media (min-width: $bp-m) {
+        @include layout($map-m);
+        @include span(4 last);
+    }
+    @media (min-width: $bp-l) {
+        @include layout($map-l);
+        @include span(6 of 12);
+    }
+}
+
+.footer__caption {
+    clear: both;
+}
+    
+
