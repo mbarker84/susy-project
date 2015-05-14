@@ -14,10 +14,10 @@ $susy: (
 ); 
 
 /* Maps */
-$map-s: layout(auto 3 .1);
-$map-m: layout(auto 6 .25);
+$map-s: layout(auto 3 0.01);
+$map-m: layout(auto 8 .1);
 $map-l: layout(auto 12 0 no-gutters);
-$map-gallery-l: layout(auto 4 .05 after);
+$map-gallery-l: layout(auto 12 .05 after);
 
 @include border-box-sizing;
 
@@ -32,7 +32,7 @@ img {
 }
 
 header {
-    background-color: darken($color2, 10%);
+    background-color: $color2;
     color: $color1;
     @include padding;
     text-align: center;
@@ -92,24 +92,27 @@ ul.gallery__list {
             margin-bottom: 0;
         }
         @media (min-width: $bp-s) {
-            @include layout($map-s);
-            @include gallery(1);
-            margin-bottom: gutter();
-            &:nth-last-child(-n+3) {
-                margin-bottom: 0;
+            @include with-layout($map-s) {
+                @include gallery(1);
+                margin-bottom: gutter(3);
+                &:nth-last-child(-n+3) {
+                    margin-bottom: 0;
+                }
             }
         }
         @media (min-width: $bp-m) {
-            @include layout($map-m);
-            @include gallery(2);
-            margin-bottom: gutter(6);
+            @include with-layout($map-m) {
+                @include gallery(2);
+                margin-bottom: gutter(8);
+            }
         }
         @media (min-width: $bp-l) {
-            @include layout($map-gallery-l);
-            @include gallery(1);
-            margin-bottom: gutter(4);
-            &:nth-last-child(-n+4) {
-                margin-bottom: 0;
+            @include with-layout($map-gallery-l) {
+                @include gallery(4);
+                margin-bottom: gutter(12);
+                &:nth-last-child(-n+4) {
+                    margin-bottom: 0;
+                }
             }
         }
     }
