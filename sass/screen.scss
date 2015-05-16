@@ -7,23 +7,21 @@
 @import "compass/utilities/general/clearfix";
 
 $susy: (
-  columns: 2,
-  gutters: .1,
+  columns: 12,
+  gutters: 0.2,
   global-box-sizing: border-box,
   debug: (image: show)
 ); 
 
 /* Maps */
-$map-s: layout(auto 3 0.01);
-$map-m: layout(auto 8 .1);
-$map-l: layout(auto 12 0 no-gutters);
-$map-gallery-l: layout(auto 12 .05 after);
+$map-s: layout(auto 12 0.2);
+$map-l: layout(auto 16 0 no-gutters);
 
 @include border-box-sizing;
 
 body {
+    background-color: $color2;
     font-size: 100%;
-    background-color: darken($color2, 10%);
 }
 
 img {
@@ -32,85 +30,92 @@ img {
 }
 
 header {
-    background-color: $color2;
-    color: $color1;
     @include padding;
+    background-color: $color2;
+    color: darken($color4, 20%);
+    padding-top: 3em;
+    padding-bottom: 3em;
     text-align: center;
+    border-top: 4px solid darken($color2, 10%);
     @media (min-width: $bp-l) {
-        @include layout($map-l);
-        @include span(3);
+        @include with-layout($map-l) {
+            @include span(4);
+            padding-top: 5em;
+        }
+    }
+    h1 {
+        line-height: 1.2;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        border-bottom: 2px solid darken($color2, 10%);
     }
 }
 
+.header__text {
+    max-width: 30em;
+    margin: 0 auto;
+}
+
 main {
-    background-color: $color2;
+    background-color: darken($color4, 10%);
     @media (min-width: $bp-l) {
-        @include layout($map-l);
-        @include span(9 last);
+        @include with-layout($map-l) {
+            @include span(12 last);
+        }
     }
 }
 
 nav.categories {
-    background-color: $color3;
+    background-color: $accent;
+    color: darken($accent, 30%);
     padding: 1em;
     font-family: $paragraph;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-top: 4px solid darken($accent, 15%);
     @include clearfix;
-    h3.categories__type {
-        display: none;
-    }
-    @media (min-width: $bp-s) {
-        padding: 1em 1.5em;
-    }
-    @media (min-width: $bp-m) {
-        padding: 1em 2em;
-    }
     @media (min-width: $bp-l) {
-        @include layout($map-gallery-l);
-        padding: 0;
-        h3.categories__title {
-            @include span(1);
-            padding: 1em 2.5em;
-        }
-        h3.categories__type {
-            @include span(2 last);
-            display: block;
-            background-color: $color4;
-            padding: 1em 2.5em;
-        }
+        border-left: 4px solid darken($accent, 15%);
     }
 }
 
 ul.gallery__list {
     @include clearfix;
-    list-style: none;
     @include padding;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    list-style: none;
+    @media (min-width: $bp-s) {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+    }
+    @media (min-width: $bp-s) {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    @media (min-width: $bp-l) {
+        padding: 0;
+        border-left: 4px solid $color4;
+    }
     li {
-        @include gallery(1 of 2);
-        margin-bottom: gutter(2);
-        background-color: $color4;
+        @include gallery(6);
+        margin-bottom: gutter(12);
         &:nth-last-child(-n+2) {
             margin-bottom: 0;
         }
         @media (min-width: $bp-s) {
             @include with-layout($map-s) {
-                @include gallery(1);
-                margin-bottom: gutter(3);
+                @include gallery(4);
                 &:nth-last-child(-n+3) {
                     margin-bottom: 0;
                 }
             }
         }
-        @media (min-width: $bp-m) {
-            @include with-layout($map-m) {
-                @include gallery(2);
-                margin-bottom: gutter(8);
-            }
-        }
         @media (min-width: $bp-l) {
-            @include with-layout($map-gallery-l) {
+            @include with-layout($map-l) {
                 @include gallery(4);
-                margin-bottom: gutter(12);
-                &:nth-last-child(-n+4) {
+                margin-bottom: 0;
+                &:nth-last-child(-n+3) {
                     margin-bottom: 0;
                 }
             }
@@ -119,21 +124,27 @@ ul.gallery__list {
 }
 
 footer {
-    background-color: $color4;
+    @include padding;
     @include clearfix;
+    padding-top: 3em;
+    background-color: $color4;
+    color: lighten($color4, 40%);
     clear: both;
+    border-top: 6px solid darken($color4, 10%);
+    @media (min-width: $bp-l) {
+        padding-top: 5em;
+        padding-left: 0;
+    }
 }
 
 .about__photo {
-    @include padding;
-    @media (min-width: $bp-m) {
-        @include layout($map-m);
-        @include span(2);
-        background-colour: $color1;
-    }
+    @include span(3);
     @media (min-width: $bp-l) {
-        @include layout($map-l);
-        @include span(3);
+        @include with-layout($map-l) {
+            @include span(3);
+            margin-left: span(4);
+            padding: 3em;
+        }
     }
     img {
         border-radius: 50%;
@@ -143,20 +154,25 @@ footer {
 }
 
 .about__text {
-    @include padding;
+    @include span(9 last);
+    padding-left: 1em;
     background-colour: $color2;
-    @media (min-width: $bp-m) {
-        @include layout($map-m);
-        @include span(4 last);
-    }
     @media (min-width: $bp-l) {
-        @include layout($map-l);
-        @include span(6);
+        @include with-layout($map-l) {
+            @include span(6);
+            padding-top: 3em;
+            padding-left: 0;
+        }
     }
 }
 
-.footer__caption {
+p.footer__caption {
     clear: both;
+    padding: 3em 0 1em 0;
+    color: darken($color4, 10%);
+    @media (min-width: $bp-l) {
+        padding-left: 2.5em;
+    }
 }
     
 

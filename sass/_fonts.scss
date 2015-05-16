@@ -4,14 +4,18 @@
 h1 {
     font-family: $headings;
     font-size: 2em;
-    margin-bottom: 1em;
+    @media (min-width: $bp-l) {
+        font-size: 2.2em;
+    }
 }
 
 h2 {
-    font-family: $headings;
-    font-size: 1.3em;
+    font-family: $paragraph;
+    font-size: 1.2em;
     margin-bottom: 1em;
     line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: .1em;
 }
 
 p {

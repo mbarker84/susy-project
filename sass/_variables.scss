@@ -1,9 +1,9 @@
 /* Variables - Colour */
-$color1: #24221F;
-$color2: #FFFDEB;
-$color3: #4B5F6D;
-$color4: #363F45;
-$color5: #88826A;
+$color1: #24555C;
+$color2: #EDF8FC;
+$color3: #55CADC;
+$color4: #2D3638;
+$accent: #B5465E;
 
 /* Variables - Breakpoints */
 $bp-s: 420px;
@@ -17,14 +17,18 @@ $paragraph: 'Quattrocento Sans', sans-serif;
 /* Mixins */
 
 @mixin padding {
-    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
     @media (min-width: $bp-s) {
-        padding: 1.5em;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
     }
     @media (min-width: $bp-m) {
-        padding: 2em;
+        padding-left: 2em;
+        padding-right: 2em;
     }
     @media (min-width: $bp-l) {
-        padding: 2.5em;
+        padding-left: 2.5em;
+        padding-right: 2.5em;
     }
 }
