@@ -80,7 +80,7 @@ p {
   box-sizing: border-box; }
 
 body {
-  background-color: #EDF8FC;
+  background-color: #F2F5F8;
   font-size: 100%; }
 
 img {
@@ -90,12 +90,12 @@ img {
 header {
   padding-left: 1em;
   padding-right: 1em;
-  background-color: #EDF8FC;
+  background-color: #F2F5F8;
   color: black;
   padding-top: 3em;
   padding-bottom: 3em;
   text-align: center;
-  border-top: 4px solid #c1e7f5; }
+  border-top: 4px solid #d1dce6; }
   @media (min-width: 420px) {
     header {
       padding-left: 1.5em;
@@ -117,7 +117,7 @@ header {
     line-height: 1.2;
     margin-bottom: 1em;
     padding-bottom: 1em;
-    border-bottom: 2px solid #c1e7f5; }
+    border-bottom: 2px solid #d1dce6; }
 
 .header__text {
   max-width: 30em;
@@ -132,18 +132,18 @@ main {
       margin-right: 0; } }
 
 nav.categories {
-  background-color: #B5465E;
-  color: #471b25;
+  background-color: #D24780;
+  color: #671939;
   padding: 1em;
   font-family: "Quattrocento Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: .1em;
-  border-top: 4px solid #7e3141;
+  border-top: 4px solid #a4285b;
   overflow: hidden;
   *zoom: 1; }
   @media (min-width: 1100px) {
     nav.categories {
-      border-left: 4px solid #7e3141; } }
+      border-left: 4px solid #a4285b; } }
 
 ul.gallery__list {
   overflow: hidden;
@@ -261,35 +261,32 @@ footer {
   @media (min-width: 1100px) {
     footer {
       padding-top: 5em;
-      padding-left: 0; } }
-
-.about__photo {
-  width: 23.94366%;
-  float: left;
-  margin-right: 1.40845%; }
+      padding-left: 0;
+      padding-right: 0; } }
+  footer .about__photo {
+    width: 23.94366%;
+    float: left;
+    margin-right: 1.40845%;
+    padding: 0 1em; }
+    footer .about__photo img {
+      max-width: 20em;
+      border-radius: 50%; }
+  footer .about__text {
+    width: 74.64789%;
+    float: right;
+    margin-right: 0;
+    background-colour: #F2F5F8; }
   @media (min-width: 1100px) {
-    .about__photo {
+    footer .about__photo {
       width: 18.75%;
       float: left;
       margin-left: 25%;
-      padding: 3em; } }
-  .about__photo img {
-    border-radius: 50%;
-    max-width: 20em;
-    margin: 0 auto; }
-
-.about__text {
-  width: 74.64789%;
-  float: right;
-  margin-right: 0;
-  padding-left: 1em;
-  background-colour: #EDF8FC; }
+      padding: 0 1.5em; } }
   @media (min-width: 1100px) {
-    .about__text {
+    footer .about__text {
       width: 37.5%;
       float: left;
-      padding-top: 3em;
-      padding-left: 0; } }
+      padding-top: 3em; } }
 
 p.footer__caption {
   clear: both;
